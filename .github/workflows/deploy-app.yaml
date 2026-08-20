@@ -11,18 +11,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # (Optional) You can leave this to test if your code is valid, 
+      # but we removed the 'npm run build' step from here.
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "24"
 
-      - name: Install Dependencies
-        run: npm install --frozen-lockfile
-
-      - name: Build GDKYD Chinese Project
-        run: npm run build
-
-      # Configure SSH Safely
       - name: Configure SSH
         env:
           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
@@ -34,28 +29,29 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
 
-      # Deploy to Alibaba EC2
       - name: Deploy to EC2
         env:
           EC2_HOST: ${{ secrets.EC2_HOST }}
           EC2_USER: ${{ secrets.EC2_USER }}
         run: |
-          # 1. Create a specific directory for the GDKYD Chinese frontend
+          # 1. Create directory
           ssh -i ~/.ssh/id_rsa $EC2_USER@$EC2_HOST "mkdir -p ~/gdkyd-china-frontend"
 
-          # 2. Create the .env file locally from GitHub Secrets (e.g., NEXT_PUBLIC_API_URL)
+          # 2. Create the .env file locally
           cat << 'EOF' > .env
           ${{ secrets.FRONTEND_ENVS }}
           EOF
 
-          # 3. Copy files to EC2 instance (including the .next build folder)
+          # 3. Sync source code to the server 
+          # (Now we are transferring raw code, not the broken build)
           rsync -avz -e "ssh -i ~/.ssh/id_rsa" \
             --exclude='.git' \
             --exclude='node_modules' \
+            --exclude='.next' \
             --exclude='.github' \
             . $EC2_USER@$EC2_HOST:~/gdkyd-china-frontend/
 
-          # 4. Execute deployment commands safely
+          # 4. Execute build AND deployment directly on the server
           ssh -i ~/.ssh/id_rsa $EC2_USER@$EC2_HOST << 'EOF'
             export PATH=$HOME/.local/share/fnm:$PATH
             eval "`fnm env`"
@@ -64,10 +60,13 @@ jobs:
             
             cd ~/gdkyd-china-frontend
             
-            # Install production dependencies
-            npm install --production
+            # Install ALL dependencies (Tailwind needs devDependencies to build CSS)
+            npm install
             
-            # Restart or start the GDKYD Chinese PM2 process on Port 3000
+            # BUILD ON THE SERVER to ensure CSS and assets generate correctly
+            npm run build
+            
+            # Restart or start the PM2 process
             pm2 restart gdkyd-china-frontend || PORT=3000 pm2 start npm --name "gdkyd-china-frontend" -- start
             
             pm2 save
