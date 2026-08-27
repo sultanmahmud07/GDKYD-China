@@ -1,7 +1,5 @@
 import type { NextConfig } from "next";
 
-const isProd = process.env.NODE_ENV === "production";
-
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
@@ -40,7 +38,7 @@ const nextConfig: NextConfig = {
           },
           {
             key: 'Content-Security-Policy',
-            value: `default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' blob: data: https://145.223.21.187 https://147.79.117.103 https://gdkyd.com https://api.gdkyd.com https://res.cloudinary.com https://www.googletagmanager.com https://www.google-analytics.com https://upload.wikimedia.org https://via.placeholder.com; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://api.gdkyd.com https://www.googletagmanager.com https://www.google-analytics.com; frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://player.vimeo.com https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self';${isProd ? ' upgrade-insecure-requests;' : ''}`
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' blob: data: https://145.223.21.187 https://147.79.117.103 https://gdkyd.com https://api.gdkyd.com https://res.cloudinary.com https://www.googletagmanager.com https://www.google-analytics.com https://upload.wikimedia.org https://via.placeholder.com; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://api.gdkyd.com https://www.googletagmanager.com https://www.google-analytics.com; frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://player.vimeo.com https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self';"
           }
         ]
       }
