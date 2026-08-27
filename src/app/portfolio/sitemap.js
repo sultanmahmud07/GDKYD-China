@@ -1,19 +1,27 @@
 import { BASEURL } from "../../../Constant";
 
+export const dynamic = "force-dynamic";
+
 // Function to fetch portfolio items from your API
 async function getPortfolio() {
-  const result = await fetch(`${BASEURL}/portfolio/all`);
+  try {
+    const result = await fetch(`${BASEURL}/portfolio/all`);
 
-  if (!result.ok) {
-    throw new Error("There was an error fetching portfolio items for the sitemap");
+    if (!result.ok) {
+      console.error("Failed to fetch portfolio items for sitemap, status:", result.status);
+      return [];
+    }
+    const data = await result.json();
+    return data?.data || [];
+  } catch (error) {
+    console.error("Error fetching portfolio items for sitemap:", error);
+    return [];
   }
-  return result.json();
 }
 
 // Generate the sitemap
 export default async function sitemap() {
-  const portfolioData = await getPortfolio();
-  const list = portfolioData?.data || [];
+  const list = await getPortfolio();
 
   return list
     .filter((portfolio) => portfolio?.slug && portfolio?.slug !== "undefined")

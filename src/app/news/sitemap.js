@@ -1,19 +1,27 @@
 import { BASEURL } from "../../../Constant";
 
+export const dynamic = "force-dynamic";
+
 // Function to fetch products from your API
 async function getNews() {
-  const result = await fetch(`${BASEURL}/blog/all`);
+  try {
+    const result = await fetch(`${BASEURL}/blog/all`);
 
-  if (!result.ok) {
-    throw new Error("There was an error fetching news for the sitemap");
+    if (!result.ok) {
+      console.error("Failed to fetch news for sitemap, status:", result.status);
+      return [];
+    }
+    const data = await result.json();
+    return data?.data || [];
+  } catch (error) {
+    console.error("Error fetching news for sitemap:", error);
+    return [];
   }
-  return result.json();
 }
 
 // Generate the sitemap
 export default async function sitemap() {
-  const newsData = await getNews();
-  const list = newsData?.data || [];
+  const list = await getNews();
 
   return list
     .filter((news) => (news?.slug || news?.id) && (news?.slug || news?.id) !== "undefined")
