@@ -61,7 +61,7 @@ const TestimonialCard = ({ name, des, rating, imgUrl }) => {
               onClick={() => setIsExpanded(!isExpanded)}
               className="mt-3 text-xs font-bold text-[#064a9b] uppercase tracking-wider hover:text-[#053a7a] transition-colors"
             >
-              {isExpanded ? "Read Less" : "Read Full Review"}
+              {isExpanded ? "收起" : "阅读完整评价"}
             </button>
           )}
         </div>
@@ -139,23 +139,23 @@ const TestimonialSlider = ({ keys, images, title, description }) => {
             {keys.map((item, i) => {
               const testimonialData = {
                 testimonial1: {
-                  name: "John Li",
+                  name: "李强",
                   des: "“KYD 的机械帮助我们简化了生产流程，并显著提高了产品质量。他们的定制解决方案确实在行业中脱颖而出。”"
                 },
                 testimonial2: {
-                  name: "Alice Wang",
+                  name: "王芳",
                   des: "“我们使用 KYD 的无纺布机械已有多年，其性能和耐用性始终超出我们的预期。他们的支持团队总是随时准备回答我们的任何问题。”"
                 },
                 testimonial3: {
-                  name: "Robert Chen",
+                  name: "陈伟",
                   des: "“KYD 的机械彻底改变了我们的运营，减少了浪费并提高了效率。安装和培训过程非常顺利，设备也非常可靠。”"
                 },
                 testimonial4: {
-                  name: "Liang Zhang",
+                  name: "张亮",
                   des: "“由于 KYD 的机械，我们公司的生产线取得了显著的改进。他们的团队花时间了解我们的需求，提供了一个优化我们的工作流程并提高产量的解决方案。”"
                 },
                 testimonial5: {
-                  name: "Mei Ling",
+                  name: "美玲",
                   des: "“KYD 的售后支持非常出色。他们提供了全面的培训，并且响应迅速，确保我们的运营顺利进行。”"
                 }
               };

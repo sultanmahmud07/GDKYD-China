@@ -36,7 +36,7 @@ const BlogShow = async ({ blogs }) => {
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
               <div className="px-6 py-4 border-b border-gray-50 flex items-center justify-between">
                 <h3 className="font-bold text-lg text-[#252B42]">
-                  {"Explore Solutions"}
+                  {"探索解决方案"}
                 </h3>
                 <MdCategory className="text-gray-300 text-xl" />
               </div>
@@ -83,10 +83,10 @@ const BlogShow = async ({ blogs }) => {
               <div className="absolute top-0 right-0 w-40 h-40 bg-white opacity-5 rounded-full -mr-10 -mt-10 blur-3xl pointer-events-none"></div>
 
               <h3 className="text-xl text-white font-bold mb-2 relative z-10">
-                {"Need a Quote?"}
+                {"需要报价？"}
               </h3>
               <p className="text-blue-100 text-sm mb-6 relative z-10">
-                {"Contact our experts for a custom quote on our machinery."}
+                {"联系我们的专家，获取我们设备的定制报价。"}
               </p>
 
               <div

@@ -47,9 +47,9 @@ const SendQuoteModal = ({ onClose, product }) => {
 
       // ✅ Check success status
       if (response?.data?.success) {
-        toast.success('Quote sent successfully!')
+        toast.success('报价发送成功！')
       } else {
-        toast.success('Your quote has been submitted!')
+        toast.success('您的报价已提交！')
       }
 
       setFormData({
@@ -64,7 +64,7 @@ const SendQuoteModal = ({ onClose, product }) => {
       router.push('/success')
     } catch (error) {
       console.error(error)
-      toast.error(error?.response?.data?.message || 'Something went wrong!')
+      toast.error(error?.response?.data?.message || '出错了！')
     } finally {
       setLoading(false)
     }
@@ -83,20 +83,20 @@ const SendQuoteModal = ({ onClose, product }) => {
 
         {/* Title */}
         <h2 className="text-center text-2xl md:text-3xl font-bold text-primary mb-6">
-          Get a Free Quote
+          获取免费报价
         </h2>
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-4 quote-form">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-start text-sm text-[#000000] font-medium mb-1">Name</label>
+              <label className="block text-start text-sm text-[#000000] font-medium mb-1">姓名</label>
               <input
                 type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                placeholder="Write, what’s your name?"
+                placeholder="请输入您的姓名"
                 className="w-full rounded-md bg-[#0000000D] p-3 outline-none"
                 required
               />
@@ -108,7 +108,7 @@ const SendQuoteModal = ({ onClose, product }) => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="Enter your email"
+                placeholder="请输入您的电子邮箱"
                 className="w-full rounded-md bg-[#0000000D] p-3 outline-none"
                 required
               />
@@ -135,14 +135,14 @@ const SendQuoteModal = ({ onClose, product }) => {
             />
             <div>
               <label className="block text-start text-sm text-[#000000] font-medium mb-1">
-                Business name <span className="text-gray-400">(optional)</span>
+                公司名称 <span className="text-gray-400">(选填)</span>
               </label>
               <input
                 type="text"
                 name="businessName"
                 value={formData.businessName}
                 onChange={handleChange}
-                placeholder="Enter your Business name"
+                placeholder="请输入您的公司名称"
                 className="w-full rounded-md bg-[#0000000D] p-3 outline-none"
               />
             </div>
@@ -150,13 +150,13 @@ const SendQuoteModal = ({ onClose, product }) => {
 
           <div>
             <label className="block text-start text-sm text-[#000000] font-medium mb-1">
-              Notes <span className="text-gray-400">(optional)</span>
+              备注 <span className="text-gray-400">(选填)</span>
             </label>
             <textarea
               name="notes"
               value={formData.notes}
               onChange={handleChange}
-              placeholder="What’s on your mind?"
+              placeholder="您有什么具体要求或问题吗？"
               rows={4}
               className="w-full rounded-md bg-[#0000000D] p-3 outline-none"
             />
@@ -169,13 +169,13 @@ const SendQuoteModal = ({ onClose, product }) => {
               disabled={loading}
               className="bg-primary hover:bg-green-700 text-white font-semibold px-10 md:px-14 py-2 rounded-md transition disabled:opacity-50"
             >
-              {loading ? 'Sending...' : 'Send'}
+              {loading ? '正在发送...' : '发送'}
             </button>
           </div>
           {
             product?._id &&
             <p className="text-primary text-sm mt-2">
-              <span className="text-yellow-500">Quote For : </span>
+              <span className="text-yellow-500">询价产品： </span>
               {product?.title_cn}
             </p>
           }

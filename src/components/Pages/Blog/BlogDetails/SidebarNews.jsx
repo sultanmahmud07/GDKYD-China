@@ -13,7 +13,7 @@ const SidebarNews = ({ blogs }) => {
       <div className="px-6 py-4 border-b border-gray-100 bg-gray-50 flex items-center justify-between">
         <h3 className="font-bold text-lg text-[#252B42] flex items-center gap-2">
           <MdTrendingUp className="text-[#064a9b]" />
-          {"Latest News"}
+          {"最新消息"}
         </h3>
       </div>
 
@@ -24,7 +24,7 @@ const SidebarNews = ({ blogs }) => {
           
           // Format the date (e.g., "Oct 24, 2024")
           const dateObj = new Date(item.createdAt || Date.now());
-          const dateStr = dateObj.toLocaleDateString('en-US', {
+          const dateStr = dateObj.toLocaleDateString('zh-CN', {
              year: 'numeric',
              month: 'short',
              day: 'numeric'
@@ -65,7 +65,7 @@ const SidebarNews = ({ blogs }) => {
       {/* Footer Link */}
       <div className="p-4 bg-gray-50 border-t border-gray-100 text-center">
          <Link href="/news" className="text-xs font-bold text-[#064a9b] uppercase tracking-widest hover:underline">
-            {"View All News"}
+            {"查看全部消息"}
          </Link>
       </div>
     </div>

@@ -9,8 +9,8 @@ import ImagePortfolio from "../../components/Pages/Portfolios/ImagePortfolio/Ima
 import Honor from "../../components/Pages/Portfolios/Honor/Honor";
 
 export const metadata = {
-  title: "Portfolio Precision Machinery & Medical Equipment Manufacturing",
-  description: "Showcase your projects with Guangdong KYD’s professional portfolio. Explore innovative manufacturing solutions, product design, automation, and engineering excellence. Trusted by global clients in the UK, USA, Asia, and Africa.",
+  title: "案例展示 | 精密机械与医疗设备制造",
+  description: "探索广东快裕达精密机械的专业案例展示。了解我们创新的生产制造解决方案、产品设计、自动化技术和工程实力。深受全球客户信赖。"
 };
 export default async function Page() {
   const banner = await getBanners("portfolio")

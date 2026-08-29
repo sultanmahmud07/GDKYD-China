@@ -13,8 +13,8 @@ import getCertificates from "../../lib/getCertificates";
 import getPartners from "../../lib/getPartners";
 import getBanners from "../../lib/getBanner";
 export const metadata = {
-  title: "Control Non-Woven Medical Equipment & Mask Machinery Manufacturer",
-  description: "KYD is a leading manufacturer in automation, machinery, and innovative technology solutions. Discover our global expertise, advanced manufacturing, quality assurance, and industry leadership. Learn more at"
+  title: "关于快裕达 | 医疗防护与无纺布制品机械设备制造商",
+  description: "广东快裕达精密机械制造有限公司专注于全自动无纺布制品生产设备的研发与制造。了解快裕达的企业文化、技术实力、质量管理以及我们服务于全球客户的承诺。"
 };
 
 export default async function Page() {

@@ -12,7 +12,7 @@ import SidebarNews from "./SidebarNews"; // New Component below
 const BlogDetails = async ({ slug }) => {
   const blog = await getSingleBlog(slug);
   const allBlogs = await getAllBlogs();
-    // console.log(blog)
+  // console.log(blog)
   // 1. Filter out the current blog
   const currentId = blog?.data?._id;
   const otherBlogs = allBlogs?.data?.filter(
@@ -52,7 +52,7 @@ const BlogDetails = async ({ slug }) => {
               <span>{new Date(blog?.data?.createdAt || Date.now()).toLocaleDateString()}</span>
             </div>
             <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
-            <span>{"Industry News"}</span>
+            <span>{"行业新闻"}</span>
           </div>
         </div>
       </div>

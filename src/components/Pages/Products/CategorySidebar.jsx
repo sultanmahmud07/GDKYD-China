@@ -18,7 +18,7 @@ const CategorySidebar = async ({ slug }) => {
                         <span className="text-[#064a9b] bg-blue-50 p-1.5 rounded-lg">
                             <MdCategory />
                         </span>
-                        {"Categories"}
+                        {"产品类别"}
                     </h3>
                 </div>
 
@@ -27,7 +27,7 @@ const CategorySidebar = async ({ slug }) => {
                     <div className="relative group">
                         <input
                             type="text"
-                            placeholder={"Filter products..."}
+                            placeholder={"筛选产品..."}
                             className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#064a9b]/20 focus:border-[#064a9b] transition-all"
                         />
                         <MdSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-lg group-focus-within:text-[#064a9b] transition-colors" />
@@ -71,19 +71,19 @@ const CategorySidebar = async ({ slug }) => {
             <div className="bg-gradient-to-b from-blue-50/50 to-white rounded-2xl p-6 border border-blue-100 text-center relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-24 h-24 bg-[#064a9b]/5 rounded-bl-full -mr-4 -mt-4"></div>
                 <h4 className="text-[#252B42] font-bold text-base mb-2 relative z-10">
-                    {"Need Help?"}
+                    {"需要帮助？"}
                 </h4>
                 <p className="text-gray-500 text-xs mb-5 leading-relaxed relative z-10 px-2">
-                    {"Contact our experts for a custom quote."}
+                    {"联系我们的专家获取定制报价。"}
                 </p>
                 <div className="flex flex-col gap-3 relative z-10">
                     <a href="tel:+8613902617335" className="flex items-center justify-center gap-2 w-full py-2.5 bg-white border border-gray-200 rounded-xl text-[#064a9b] font-bold text-sm hover:border-[#064a9b] hover:shadow-md transition-all group">
                         <MdPhone className="group-hover:scale-110 transition-transform" />
-                        <span>Call Us</span>
+                        <span>拨打电话</span>
                     </a>
                     <SafeEmailLink className="flex items-center justify-center gap-2 w-full py-2.5 bg-[#064a9b] text-white rounded-xl font-bold text-sm shadow-md hover:bg-[#053a7a] hover:shadow-lg transition-all">
                         <MdEmail />
-                        <span>Email Us</span>
+                        <span>发送邮件</span>
                     </SafeEmailLink>
                 </div>
             </div>

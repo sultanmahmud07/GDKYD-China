@@ -84,7 +84,7 @@ const GetInTouchContent = ({ translations, formLabels }) => {
                 {/* Address - Click to Google Maps */}
                 <InfoItem 
                   icon={<FaMapMarkerAlt />} 
-                  label="Location" 
+                  label="地址" 
                   value={translations.address}
                   // Google Maps Search Link
                   href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent("广东省东莞市东深二路321号")}`}
@@ -108,7 +108,7 @@ const GetInTouchContent = ({ translations, formLabels }) => {
           {/* --- RIGHT SIDE: Form --- */}
           <div className="bg-white p-8 md:p-12 flex flex-col justify-center">
              <div className="max-w-lg mx-auto w-full">
-                <h3 className="text-2xl font-bold text-[#252B42] mb-6">Send us a Message</h3>
+                <h3 className="text-2xl font-bold text-[#252B42] mb-6">发送留言</h3>
                 <ContactForm
                   name={formLabels.name}
                   phone={formLabels.phone}

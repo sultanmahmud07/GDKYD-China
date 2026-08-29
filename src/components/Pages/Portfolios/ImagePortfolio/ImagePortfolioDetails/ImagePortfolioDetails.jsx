@@ -53,13 +53,13 @@ const ImagePortfolioDetails = ({ data, slug }) => {
                 </div>
                 <div className="flex items-center gap-2 text-sm text-gray-500">
                     <IoMdFolderOpen className="text-[#064a9b] text-lg" />
-                    <span>Case Study</span>
+                    <span>案例研究</span>
                 </div>
             </div>
 
             {/* Description */}
             <div className="prose prose-lg max-w-none text-gray-600 leading-relaxed">
-               <h3 className="text-xl font-bold text-[#252B42] mb-3">Project Overview</h3>
+               <h3 className="text-xl font-bold text-[#252B42] mb-3">项目概览</h3>
                <p className="whitespace-pre-line">
                  {data?.description_cn}
                </p>

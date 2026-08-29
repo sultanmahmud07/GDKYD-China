@@ -11,7 +11,7 @@ const RelatedBlogs = ({ blogs }) => {
         {/* Section Title */}
         <div className="text-center mb-10">
           <h2 className="text-2xl md:text-3xl font-bold text-[#252B42]">
-             {"More Industry Insights"}
+             {"更多行业洞察"}
           </h2>
           <div className="h-1 w-12 bg-[#064a9b] rounded-full mx-auto mt-3"></div>
         </div>
@@ -31,7 +31,7 @@ const RelatedBlogs = ({ blogs }) => {
               className="w-20 md:w-32 grayscale"
             />
             <h3 className="text-lg font-medium text-gray-400">
-               No more related news found.
+               未找到更多相关新闻。
             </h3>
           </div>
         )}

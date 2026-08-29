@@ -40,11 +40,11 @@ const Success = () => {
                               </div>
 
                               {/* Title */}
-                              <h2 className="text-2xl font-bold text-gray-900 mb-2">Thank You</h2>
+                              <h2 className="text-2xl font-bold text-gray-900 mb-2">谢谢您</h2>
 
                               {/* Subtitle */}
                               <p className="text-[#9F9C96] mb-6">
-                                     Your message has been sent successfully. We will contact you as soon as possible.
+                                     您的消息已成功发送。我们会尽快与您联系。
                               </p>
 
                               {/* Button */}
@@ -53,7 +53,7 @@ const Success = () => {
                                           type="button"
                                           className="px-6 md:px-10 cursor-pointer py-3 bg-primary hover:bg-secondary text-white font-semibold rounded-lg shadow-md transition"
                                     >
-                                          Explore More
+                                          探索更多
                                     </button></Link>
                         </div>
                   </div>

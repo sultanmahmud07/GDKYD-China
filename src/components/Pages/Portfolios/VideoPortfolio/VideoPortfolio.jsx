@@ -8,7 +8,7 @@ const VideoPortfolio =  ({ videos}) => {
           {/* Title */}
         <div className=" mb-6 md:mb-10">
           <h2 className="text-2xl md:text-4xl font-bold text-[#252B42]">
-            {"Video Portfolio"}
+            {"视频案例展示"}
           </h2>
           <div className="h-1 w-20 bg-[#064a9b] rounded-full"></div>
         </div>

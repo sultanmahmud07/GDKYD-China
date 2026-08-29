@@ -84,7 +84,7 @@ const ProductCard = ({ product, locale, index = 0 }) => {
                                     </div>
                                     <div className="flex items-center gap-2 text-xs text-gray-600 bg-slate-50 p-1 md:p-2 rounded border border-slate-100">
                                           <BsCpu className="text-[#064a9b] text-base shrink-0" />
-                                          <span className="truncate text-xs">{control} System</span>
+                                          <span className="truncate text-xs">{control} 系统</span>
                                     </div>
                               </div>
 

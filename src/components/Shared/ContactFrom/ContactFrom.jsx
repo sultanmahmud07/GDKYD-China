@@ -22,7 +22,7 @@ const ContactForm = ({ name, phone, email, product, note }) => {
     const note = from.note.value;
     // 2. Validation check for phone
     if (!phoneNumber || phoneNumber.length < 5) {
-      toast.error("Please enter a valid phone number");
+      toast.error("请输入有效的电话号码");
       setIsLoading(false);
       return;
     }
@@ -46,7 +46,7 @@ const ContactForm = ({ name, phone, email, product, note }) => {
         `${BASEURL}/query/create`,
         finalData
       );
-      toast.success("Your message was sent successfully!");
+      toast.success("您的留言已成功发送！");
       setIsLoading(false);
       // 4. Reset form and phone state
       setPhoneNumber("");
@@ -55,7 +55,7 @@ const ContactForm = ({ name, phone, email, product, note }) => {
       return response.data;
     } catch (error) {
       console.error("Error sending message:", error);
-      toast.error("There was an error sending your message.");
+      toast.error("发送留言时出错。");
       setIsLoading(false);
     }
   };
@@ -75,7 +75,7 @@ const ContactForm = ({ name, phone, email, product, note }) => {
             type="text"
             required
             name="name"
-            placeholder="Name"
+            placeholder="姓名"
             className="w-full h-10 md:h-14"
           />
         </div>
@@ -109,7 +109,7 @@ const ContactForm = ({ name, phone, email, product, note }) => {
         </p>
         <select name="service" className="w-full h-10 md:h-14" required>
           <option disabled value="">
-            {"Select one"}
+            {"请选择"}
           </option>
           <option value={"口罩机械"}>
             {"口罩机械"}
@@ -118,7 +118,7 @@ const ContactForm = ({ name, phone, email, product, note }) => {
             value={
               "Cosmetic&Life Products Making Machinery"}
           >
-            {"Cosmetic&Life Products Making Machinery"}
+            {"化妆品与生活用品制造机械"}
           </option>
           <option
             value={
@@ -127,10 +127,10 @@ const ContactForm = ({ name, phone, email, product, note }) => {
             {"医疗产品生产机械"}
           </option>
           <option value={"Packaging Machinery"}>
-            {"Packaging Machinery"}
+            {"包装机械"}
           </option>
           <option value={"Packaging Machinery"}>
-            {"Non-Standard Equipment"}
+            {"非标定制设备"}
           </option>
         </select>
       </div>
@@ -141,7 +141,7 @@ const ContactForm = ({ name, phone, email, product, note }) => {
         <textarea
           type="text"
           name="note"
-          placeholder="Special note"
+          placeholder="特别备注/要求"
           className="w-full h-10 md:h-14"
         />
       </div>
@@ -149,7 +149,7 @@ const ContactForm = ({ name, phone, email, product, note }) => {
         <input
           type="submit"
           disabled={isLoading}
-          value={isLoading ? "Loading.." : "SUBMIT MESSAGE"}
+          value={isLoading ? "正在提交..." : "提交留言"}
           className="submit-btn inline-block h-10 md:h-12 border-none shadow-md  uppercase font-semibold  bg-gradient-to-r from-secondary to-neutral hover:bg-gradient-to-r hover:from-neutral hover:to-secondary p-2 cursor-pointer px-3 md:px-12 text-sm  rounded text-[#FFFFFF]  hover:bg-primary transition"
         />
       </div>

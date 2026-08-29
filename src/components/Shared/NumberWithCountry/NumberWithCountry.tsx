@@ -7,7 +7,7 @@ import "flagpack/dist/flagpack.css"           // flags
 
 type Props = {
       value: string | undefined
-      onChange: (value?: string) => void  
+      onChange: (value?: string) => void
       label?: string
       required?: boolean
       className?: string
@@ -17,7 +17,7 @@ type Props = {
 const NumberWithCountry: React.FC<Props> = ({
       value,
       onChange,
-      label = "Contact Number",
+      label = "联系电话",
       required = true,
       className = "",
 }) => {

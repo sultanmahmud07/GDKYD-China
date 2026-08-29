@@ -25,17 +25,17 @@ const ShowProducts = ({ metaData, products }) => {
           <div className="flex items-center gap-2 text-gray-600 text-sm">
             <MdGridView className="text-[#064a9b] text-lg" />
             <span>
-              {"Showing"}{" "}
+              {"显示"}{" "}
               <span className="font-bold text-[#252B42]">
                 {startItem}-{endItem}
               </span>{" "}
-              {"of"}{" "}
+              {"/ 共"}{" "}
               <span className="font-bold text-[#252B42]">{total}</span>{" "}
-              {"results"}
+              {"条结果"}
             </span>
           </div>
           <div className="hidden sm:block text-xs text-gray-400">
-            {"Default Sorting"}
+            {"默认排序"}
           </div>
         </div>
       )}
@@ -73,10 +73,10 @@ const ShowProducts = ({ metaData, products }) => {
           />
           <div className="text-center">
             <h3 className="text-xl font-bold text-[#252B42] mb-2">
-              {"No Products Found"}
+              {"未找到产品"}
             </h3>
             <p className="text-gray-500 text-sm">
-              {"Try adjusting your category filter."}
+              {"请尝试调整您的类别筛选。"}
             </p>
           </div>
         </div>

@@ -12,7 +12,7 @@ const GetStarted = () => {
     const flags = [
     {
       id: 1,
-      name: "Dutch",
+      name: "荷兰语",
       img: img1,
     },
     {
@@ -22,27 +22,27 @@ const GetStarted = () => {
     },
     {
       id: 1,
-      name: "French",
+      name: "法语",
       img: img3,
     },
     {
       id: 1,
-      name: "German",
+      name: "德语",
       img: img4,
     },
     {
       id: 1,
-      name: "Italian",
+      name: "意大利语",
       img: img5,
     },
     {
       id: 1,
-      name: "Japanese",
+      name: "日语",
       img: img6,
     },
     {
       id: 1,
-      name: "Russian",
+      name: "俄语",
       img: img7,
     },
   ];

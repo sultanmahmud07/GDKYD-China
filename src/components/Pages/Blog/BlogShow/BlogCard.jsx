@@ -32,7 +32,7 @@ const BlogCard = ({ blog }) => {
   // 3. Date Formatting
   const dateObj = new Date(blog?.createdAt || Date.now());
   const day = dateObj.getDate();
-  const month = dateObj.toLocaleString('en-US', { month: 'short' });
+  const month = dateObj.toLocaleString('zh-CN', { month: 'short' });
   const year = dateObj.getFullYear();
 
   return (
@@ -76,12 +76,12 @@ const BlogCard = ({ blog }) => {
         
         {/* Description */}
         <p className="text-gray-500 text-sm leading-relaxed line-clamp-3 mb-6 flex-grow">
-          {finalDescription || "Click to read the full article..."}
+          {finalDescription || "点击阅读完整文章..."}
         </p>
 
         {/* Footer Link */}
         <div className="flex items-center text-sm font-bold text-[#064a9b] uppercase tracking-wider group/link">
-            {"Read Article"}
+            {"阅读文章"}
             <MdArrowForward className="ml-2 text-lg transform group-hover/link:translate-x-1 transition-transform" />
         </div>
       </div>

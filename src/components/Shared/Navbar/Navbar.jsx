@@ -93,7 +93,7 @@ const Navbar = ({ allCategories }) => {
             </SafeEmailLink>
           </div>
           <div className="flex items-center justify-end gap-3">
-            <span className="text-white text-sm">Follow Us  :</span>
+            <span className="text-white text-sm">关注我们：</span>
             <a
               target="blank"
               href="https://x.com/KYD_Precision"

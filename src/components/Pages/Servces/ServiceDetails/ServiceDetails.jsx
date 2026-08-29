@@ -4,7 +4,7 @@ import RelatedServices from "./RelatedServices/RelatedServices";
 import ServiceConfigaration from "./ServiceConfigaration/ServiceConfigaration";
 
 const ServiceDetails = async ({ product }) => {
-    // console.log(product);
+  // console.log(product);
   return (
     <div>
       <ServiceConfigaration

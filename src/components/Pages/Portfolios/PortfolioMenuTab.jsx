@@ -12,7 +12,7 @@ const PortfolioMenuTab = () => {
     },
     {
       id: 1,
-      name: "Video",
+      name: "视频展示",
       link: "/portfolio/video",
     }
   ];

@@ -8,8 +8,8 @@ import TopGap from "../../components/Shared/TopGap/TopGap";
 import getBanners from "../../lib/getBanner"
 
 export const metadata = {
-  title: "Medical & Face Mask Machinery Manufacturer | KYD",
-  description: "KYD supplies medical machinery, face mask, non-woven, packaging, cosmetic care & safety equipment. ISO 13485 certified. Contact us for quotes.",
+  title: "医疗防护与口罩机制造设备产品列表 | 快裕达",
+  description: "快裕达制造并供应医用设备、口罩机、无纺布制品深加工设备、包装机及日化护理生产线。通过ISO 13485认证。欢迎联系我们获取最新设备报价。"
 };
 export default async function Page({searchParams}) {
   const banner = await getBanners("services")

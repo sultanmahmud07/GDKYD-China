@@ -52,11 +52,11 @@ const ProductDetails = ({ configurations, product, productInfo, aboutProduct }) 
         });
       }
 
-      toast.success('Your quote request has been submitted successfully!');
+      toast.success('您的报价请求已成功提交！');
       router.push('/success');
     } catch (error) {
       console.error(error);
-      toast.error(error?.response?.data?.message || 'Failed to submit quote request!');
+      toast.error(error?.response?.data?.message || '提交报价请求失败！');
     } finally {
       setSubmitting(false);
     }
@@ -73,7 +73,7 @@ const ProductDetails = ({ configurations, product, productInfo, aboutProduct }) 
   };
 
   const whatsappUrl = `https://api.whatsapp.com/send?phone=8613902617335&text=${encodeURIComponent(
-    `Hello, I am interested in your "${product?.title_cn}". Could you please provide a quote?`
+    `你好，我对你们的“${product?.title_cn}”感兴趣。能否提供一份报价？`
   )}`;
 
   return (
@@ -132,7 +132,7 @@ const ProductDetails = ({ configurations, product, productInfo, aboutProduct }) 
                 </table>
               </div>
             ) : (
-              <p className="text-red-600 mb-6">Configurations not found.</p>
+              <p className="text-red-600 mb-6">未找到规格参数。</p>
             )}
 
             <div className="mt-6">
@@ -208,7 +208,7 @@ const ProductDetails = ({ configurations, product, productInfo, aboutProduct }) 
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">公司 <span className="text-gray-400 font-normal">(optional)</span></label>
+                  <label className="block text-xs font-semibold text-gray-700 mb-1">公司 <span className="text-gray-400 font-normal">(选填)</span></label>
                   <input
                     type="text"
                     name="businessName"
@@ -220,7 +220,7 @@ const ProductDetails = ({ configurations, product, productInfo, aboutProduct }) 
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">留言 / 需求说明 <span className="text-gray-400 font-normal">(optional)</span></label>
+                  <label className="block text-xs font-semibold text-gray-700 mb-1">留言 / 需求说明 <span className="text-gray-400 font-normal">(选填)</span></label>
                   <textarea
                     name="notes"
                     value={formData.notes}

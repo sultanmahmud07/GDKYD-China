@@ -6,6 +6,16 @@ const ServiceBanner = ({ bannerBg, title, link, des }) => {
   // Safely handle bannerBg and replace spaces with %20 for URL encoding
   const processedBannerBg = bannerBg ? bannerBg.replace(/ /g, "%20") : null;
 
+  const linkTranslations = {
+    "product": "产品",
+    "about": "关于我们",
+    "portfolio": "案例展示",
+    "news": "消息",
+    "contact": "联系我们",
+    "process": "工艺流程"
+  };
+  const translatedLink = linkTranslations[link?.toLowerCase()] || link;
+
   return (
     <section>
       <div
@@ -29,7 +39,7 @@ const ServiceBanner = ({ bannerBg, title, link, des }) => {
             <div className="div">
               <Link href={"/contact"} className="inline-block">
                 <button href={"/contact"} className="shadow md:shadow-md font-semibold bg-gradient-to-r from-primary to-secondary hover:bg-gradient-to-r hover:from-secondary hover:to-primary p-2 text-base md:text-lg px-3 md:px-10 rounded-md text-[#FFFFFF] transition">
-                  Get an instant quote
+                  获取即时报价
                 </button>
               </Link>
             </div>
@@ -44,7 +54,7 @@ const ServiceBanner = ({ bannerBg, title, link, des }) => {
               <IoIosArrowForward />
             </span>
             <Link className="capitalize" href={link}>
-              {link}
+              {translatedLink}
             </Link>
           </p>
           <h2 className="text-xl md:text-2xl font-bold uppercase text-[#064a9b]">

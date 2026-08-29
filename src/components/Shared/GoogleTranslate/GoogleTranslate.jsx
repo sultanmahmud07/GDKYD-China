@@ -18,17 +18,17 @@ const languages = [
 
 const GoogleTranslate = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedLang, setSelectedLang] = useState('en');
+  const [selectedLang, setSelectedLang] = useState('zh-CN');
   const dropdownRef = useRef(null);
 
   useEffect(() => {
     window.googleTranslateElementInit = () => {
       new window.google.translate.TranslateElement(
         {
-          pageLanguage: 'en',
+          pageLanguage: 'zh-CN',
           // Only load the languages we defined in our array
           includedLanguages: languages.map(l => l.code).join(','),
-          autoDisplay: false,
+          autoDisplay: true,
         },
         'google_translate_element'
       );

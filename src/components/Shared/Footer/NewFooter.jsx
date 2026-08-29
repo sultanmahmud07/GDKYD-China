@@ -116,8 +116,7 @@ const NewFooter = () => {
               {/* <p className='flex items-start gap-3 text-[#FFFFFFE5]'><span className="text-xl font-semibold text-primary"><FaLocationDot /></span><span>House 04, Road 15, Block-D, (2nd floor), banani, dhaka-1213</span></p> */}
               <p className="flex items-center gap-3 text-[#FFFFFFE5]">
                 <span className="text-xs md:text-sm">
-                  Address：No.321 Dongshen Road, Tangxia Town, Dongguan City, Guangdong Province
-
+                  地址：广东省东莞市塘厦镇东深二路321号
                 </span>
               </p>
               <div className="mt-2" itemScope itemType="https://schema.org/Organization">
@@ -147,38 +146,38 @@ const NewFooter = () => {
             </div>
           </div>
           <div className="flex flex-col gap-3 font-normal">
-            <p className="text-white font-bold  mb-3">NAVIGATION</p>
+            <p className="text-white font-bold  mb-3">网站导航</p>
             <Link href="/about">
-              <span>About KYD</span>
+              <span>关于快裕达</span>
             </Link>
             <Link href="/portfolio">
               <span>案例展示</span>
             </Link>
             <Link href="/product">
-              <span>Products </span>
+              <span>全部产品</span>
             </Link>
             <Link href="/contact">
               <span>联系我们</span>
             </Link>
           </div>
           <div className="flex flex-col gap-2  font-normal">
-            <p className="text-white font-bold  mb-3">QUICK LINKS</p>
+            <p className="text-white font-bold  mb-3">快捷链接</p>
             <Link href="/terms-conditions">
-              <span>Terms And Conditions</span>
+              <span>服务条款</span>
             </Link>
             <Link href="/privacy-policy">
-              <span>Refund policy</span>
+              <span>退款政策</span>
             </Link>
             {/* <Link href="/cencellation-policy"><span>cancellation policy</span></Link> */}
             <Link href="/privacy-policy">
-              <span>Privacy & Policy</span>
+              <span>隐私政策</span>
             </Link>
             <Link href="/news">
-              <span>News and article</span>
+              <span>新闻与文章</span>
             </Link>
           </div>
           <div className=" flex flex-col gap-3">
-            <p className="text-white font-bold uppercase mb-2">Stay in touch</p>
+            <p className="text-white font-bold uppercase mb-2">保持联系</p>
             <div className="w-full">
               <div className="join text-black w-full">
                 <input
@@ -186,7 +185,7 @@ const NewFooter = () => {
                   value={inputValue}
                   type="email"
                   required
-                  placeholder="Type your email"
+                  placeholder="输入您的电子邮箱"
                   className={`input input-sm input-bordered join-item w-full ${isValidEmail ? "" : "border-red-500"
                     }`} // Add red border when email is not valid
                 />
@@ -200,12 +199,12 @@ const NewFooter = () => {
             </div>
             {!isValidEmail && (
               <p className="text-red-500 text-sm">
-                Please enter a valid email address.
+                请输入有效的电子邮箱地址。
               </p>
             )}{" "}
             {/* Display error message when email is not valid */}
             <p className="text-[#FFFFFFE5] normal-case">
-              Enter your email address for get promotions and news.
+              输入您的电子邮箱以获取促销信息与最新动态。
             </p>
           </div>
         </div>
@@ -261,7 +260,7 @@ const NewFooter = () => {
           <div className="md:flex justify-end w-full md:w-1/2">
             <div className="flex justify-center md:justify-end gap-2 items-center md:gap-3">
               <p className="text-sm text-center md:text-base md:text-end md:tracking-[3px] text-white">
-                We Accept
+                支持支付方式
               </p>
               {paymentMathod.map((mathod, i) => {
                 return (
@@ -279,8 +278,7 @@ const NewFooter = () => {
           </div>
         </div>
         <p className="text-sm text-center text-white mt-4 md:mt-4 w-full">
-          © Copyright Guangdong KYD Precision Machinery Co., Ltd {currentYear} - All Rights Reserved.
-
+          © 广东快裕达精密机械有限公司 {currentYear} 版权所有 - 保留所有权利。
         </p>
         <p className="text-sm  text-center text-[#d4d4d4] py-3 w-full">
           <a

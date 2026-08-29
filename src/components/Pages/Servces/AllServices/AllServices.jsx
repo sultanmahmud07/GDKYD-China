@@ -49,7 +49,7 @@ const AllServices = ({ products }) => {
         ) : (
           <div className="flex flex-col gap-5 items-center py-5">
             <h3 className="text-xl md:text-2xl font-bold text-gray-500 text-center">
-              Product Not Found In This Category!
+              该类别下未找到产品！
             </h3>
             <Image
               src={notFoundImg}

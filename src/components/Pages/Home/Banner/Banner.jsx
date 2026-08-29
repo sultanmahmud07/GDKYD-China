@@ -99,7 +99,7 @@ const Banner = ({ data }) => {
                           type="button"
                           className="bg-primary hover:bg-blue-700 uppercase font-semibold text-white py-4 px-10 transition-colors duration-300 shadow-lg"
                         >
-                          Explore Now
+                          立即探索
                         </button>
                       </Link>
                     </div>
@@ -123,7 +123,7 @@ const Banner = ({ data }) => {
                     <span className="text-2xl">
                       <MdOutlineKeyboardDoubleArrowDown />
                     </span>
-                    <span className="tracking-widest">scroll down</span>
+                    <span className="tracking-widest">向下滚动</span>
                   </div>
                 </div>
               </div>

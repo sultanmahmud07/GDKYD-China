@@ -3,24 +3,24 @@ const OrderingProcess = () => {
     {
       title: "获取报价",
       description:
-        "Upload your design file through our online quote system to receive a personalized quote.",
+        "通过我们的在线询价系统上传您的设计文件，以获取个性化报价。",
     },
     {
-      title: "Order Placement",
-      description: "Once specifications and pricing are confirmed, place your order and provide delivery details.",
+      title: "确认订单",
+      description: "确认规格和价格后，下达您的订单并提供送货信息。",
     },
     {
-      title: "Product Manufacturing",
+      title: "产品制造",
       description:
-        "We select the optimal production technique and materials to begin manufacturing promptly.",
+        "我们选择最合适的生产技术和材料，立即开始制造。",
     },
     {
-      title: "Quality Inspection",
-      description: "Every part undergoes a quality and functionality check to meet our standards.",
+      title: "质量检测",
+      description: "每个部件都经过质量和功能检查，以满足我们的标准。",
     },
     {
-      title: "Shipping & Delivery",
-      description: "Your order is securely packaged and shipped according to the selected delivery method.",
+      title: "包装出货",
+      description: "您的订单将安全包装，并根据所选的配送方式进行发货。",
     },
   ];
 

@@ -17,10 +17,10 @@ const CategoryCard = ({ part, locale, index = 0 }) => {
       initial={{ opacity: 0, y: 50 }}         // Start: Invisible and 50px down
       whileInView={{ opacity: 1, y: 0 }}      // End: Visible and original position
       viewport={{ once: true, margin: "-50px" }} // Trigger: When 50px of card is visible
-      transition={{ 
-        duration: 0.5, 
+      transition={{
+        duration: 0.5,
         delay: index * 0.1, // Optional: Staggers cards if you pass an 'index' prop
-        ease: "easeOut" 
+        ease: "easeOut"
       }}
     >
       <Link href={`/category/${part?.slug}`} className="block h-full">
@@ -33,14 +33,14 @@ const CategoryCard = ({ part, locale, index = 0 }) => {
               alt={title || "Category Image"}
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             />
-            
+
             {/* Overlay Gradient */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </div>
 
           {/* Content Body */}
           <div className="p-6 flex flex-col flex-grow relative">
-            
+
             {/* Category Title */}
             <h3 className="text-xl font-bold text-[#252B42] capitalize mb-2 group-hover:text-[#064a9b] transition-colors line-clamp-1">
               {title || "Unnamed Category"}
@@ -53,16 +53,16 @@ const CategoryCard = ({ part, locale, index = 0 }) => {
 
             {/* Bottom Action Area */}
             <div className="mt-auto flex items-center text-[#064a9b] font-semibold text-sm">
-              <span className="mr-2">{"Explore Products"}</span>
+              <span className="mr-2">{"查看更多"}</span>
               <span className="transform transition-transform duration-300 group-hover:translate-x-2">
                 <MdArrowForward size={18} />
               </span>
             </div>
-            
+
             {/* Decorative bottom bar - Expanding Effect */}
             <div className="absolute bottom-0 left-0 w-0 h-1 bg-[#064a9b] transition-all duration-500 ease-out group-hover:w-full"></div>
           </div>
-          
+
         </div>
       </Link>
     </motion.div>

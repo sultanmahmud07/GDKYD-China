@@ -6,8 +6,8 @@ import TopGap from "../../components/Shared/TopGap/TopGap";
 import getBanners from "../../lib/getBanner";
 import { BASEURL } from "../../../Constant";
 export const metadata = {
-  title: "Contact GDKYD | Non-Woven Medical Equipment & Solutions",
-  description: "Get in touch with GDKYD for expert advice on non-woven medical equipment, manufacturing solutions, and industry-leading products. Reach us today for inquiries, support, and business opportunities.",
+  title: "联系快裕达 | 无纺布医疗设备与防护用品制造解决方案",
+  description: "联系快裕达精密机械获取无纺布医疗设备、生产制造解决方案和行业领先的设备信息。欢迎随时垂询，我们将为您提供专业的支持与商务合作。"
 };
 export default async function Page() {
   const banner = await getBanners("contact_us")
