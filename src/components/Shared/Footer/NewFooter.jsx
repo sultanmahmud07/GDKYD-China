@@ -277,18 +277,18 @@ const NewFooter = () => {
             </div>
           </div>
         </div>
-        <p className="text-sm text-center text-white mt-4 md:mt-4 w-full">
-          © 广东快裕达精密机械有限公司 {currentYear} 版权所有 - 保留所有权利。
-        </p>
-        <p className="text-sm  text-center text-[#d4d4d4] py-3 w-full">
+        <div className="text-xs md:text-sm text-center text-[#d4d4d4] py-4 w-full flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
+          <p>© {currentYear} 广东快裕达精密机械有限公司 版权所有 - 保留所有权利。</p>
+          <span className="hidden sm:inline text-gray-500">|</span>
           <a
-            className="hover:underline"
-            target="blank"
-            href="https://www.gdkyd.com/"
+            className="hover:text-white hover:underline transition duration-200"
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://beian.miit.gov.cn"
           >
-            ICP：粤ICP备2023126606号
+            粤ICP备2023126606号
           </a>
-        </p>
+        </div>
       </div>
     </section>
   );
