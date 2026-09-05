@@ -56,42 +56,18 @@ export const metadata = {
     "无纺布机械设备",
     "全自动手术衣制造机",
   ],
-  verification: {
-    google: "h3e62bYsWEGHaX-2QCqFFXfOGtkjb5lMJ_FJpg0a6R0",
-    yandex: "5e6c720b2ded4231",
-    other: {
-      "baidu-site-verification": ["codeva-uB2leomNuE"],
-    },
-  },
+  // verification: {
+  //   google: "h3e62bYsWEGHaX-2QCqFFXfOGtkjb5lMJ_FJpg0a6R0",
+  //   yandex: "5e6c720b2ded4231",
+  //   other: {
+  //     "baidu-site-verification": ["codeva-uB2leomNuE"],
+  //   },
+  // },
 };
 
 export default async function RootLayout({ children }) {
   return (
     <html lang="zh">
-      <head>
-        {/* Add Google Analytics Script */}
-        <Script
-          strategy="afterInteractive"
-          src={`https://www.googletagmanager.com/gtag/js?id=G-9GV6PTWLPM`}
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-9GV6PTWLPM');
-          `}
-        </Script>
-        <Script id="google-tag-manager" strategy="afterInteractive">
-          {`
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-W3BPJSZR');
-`}
-        </Script>
-      </head>
       <body className={``}>
         <NextTopLoader
           color="#fafafac3"
@@ -104,15 +80,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <ChatBox></ChatBox>
         {children}
         <NewFooter></NewFooter>
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-W3BPJSZR"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-            sandbox=""
-          ></iframe>
-        </noscript>
       </body>
     </html>
   );
