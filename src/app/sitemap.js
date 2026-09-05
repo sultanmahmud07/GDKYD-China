@@ -1,35 +1,34 @@
 export default function sitemap() {
-      return [
-        {
-          url: 'https://gdkyd.com/sitemap-content.xml',
-          lastModified: new Date('2026-01-27T09:56:07+00:00'),
-          changeFrequency: 'yearly',
-          priority: 1.0,
-        },
-        {
-          url: 'https://gdkyd.com/product/sitemap.xml',
-          lastModified: new Date('2026-01-27T09:56:07+00:00'),
-          changeFrequency: 'monthly',
-          priority: 0.8,
-        },
-        {
-          url: 'https://gdkyd.com/category/sitemap.xml',
-          lastModified: new Date('2026-01-27T09:56:07+00:00'),
-          changeFrequency: 'monthly',
-          priority: 0.6,
-        },
-        {
-          url: 'https://gdkyd.com/portfolio/sitemap.xml',
-          lastModified: new Date('2026-01-27T09:56:07+00:00'),
-          changeFrequency: 'monthly',
-          priority: 0.4,
-        },
-        {
-          url: 'https://gdkyd.com/news/sitemap.xml',
-          lastModified: new Date('2026-01-27T09:56:07+00:00'),
-          changeFrequency: 'monthly',
-          priority: 0.4,
-        }
-      ];
+  return [
+    {
+      url: 'http://gdkyd.com.cn/sitemap-content.xml',
+      lastModified: new Date('2026-01-27T09:56:07+00:00'),
+      changeFrequency: 'yearly',
+      priority: 1.0,
+    },
+    {
+      url: 'http://gdkyd.com.cn/product/sitemap.xml',
+      lastModified: new Date('2026-01-27T09:56:07+00:00'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: 'http://gdkyd.com.cn/category/sitemap.xml',
+      lastModified: new Date('2026-01-27T09:56:07+00:00'),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: 'http://gdkyd.com.cn/portfolio/sitemap.xml',
+      lastModified: new Date('2026-01-27T09:56:07+00:00'),
+      changeFrequency: 'monthly',
+      priority: 0.4,
+    },
+    {
+      url: 'http://gdkyd.com.cn/news/sitemap.xml',
+      lastModified: new Date('2026-01-27T09:56:07+00:00'),
+      changeFrequency: 'monthly',
+      priority: 0.4,
     }
-    
+  ];
+}

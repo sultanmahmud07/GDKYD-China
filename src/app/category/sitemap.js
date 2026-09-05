@@ -26,7 +26,7 @@ export default async function sitemap() {
   return list
     .filter((category) => category?.slug && category?.slug !== "undefined")
     .map((category) => ({
-      url: `https://gdkyd.com/category/${category.slug}`,
+      url: `http://gdkyd.com.cn/category/${category.slug}`,
       // lastModified: category?.createdAt,
     }));
 }

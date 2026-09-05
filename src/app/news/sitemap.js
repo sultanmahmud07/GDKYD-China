@@ -26,7 +26,7 @@ export default async function sitemap() {
   return list
     .filter((news) => (news?.slug || news?.id) && (news?.slug || news?.id) !== "undefined")
     .map((news) => ({
-      url: `https://gdkyd.com/news/${news.slug || news.id}`,
+      url: `http://gdkyd.com.cn/news/${news.slug || news.id}`,
       // lastModified: product?.createdAt,
     }));
 }

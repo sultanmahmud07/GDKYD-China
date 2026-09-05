@@ -6,18 +6,18 @@ export default function Home() {
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "https://gdkyd.com/#organization",
+        "@id": "http://gdkyd.com.cn/#organization",
         "name": "广东快裕达精密机械有限公司",
         "alternateName": "快裕达精密机械",
-        "url": "https://gdkyd.com",
+        "url": "http://gdkyd.com.cn",
         "logo": {
           "@type": "ImageObject",
-          "@id": "https://gdkyd.com/#logo",
-          "url": "https://gdkyd.com/assets/logo/main-logo.webp",
+          "@id": "http://gdkyd.com.cn/#logo",
+          "url": "http://gdkyd.com.cn/assets/logo/main-logo.webp",
           "caption": "广东快裕达公司 Logo"
         },
         "image": {
-          "@id": "https://gdkyd.com/#logo"
+          "@id": "http://gdkyd.com.cn/#logo"
         },
         "description": "广东快裕达精密机械制造有限公司专业研发和制造高端无纺布医用口罩制造机、手术衣制造机、鞋套制造机等全自动个人防护用品生产设备。FDA和CE认证，全球信赖的机械设备供应商。",
         "telephone": "+86-13902617335",
@@ -46,12 +46,12 @@ export default function Home() {
       },
       {
         "@type": "WebSite",
-        "@id": "https://gdkyd.com/#website",
-        "url": "https://gdkyd.com",
+        "@id": "http://gdkyd.com.cn/#website",
+        "url": "http://gdkyd.com.cn",
         "name": "快裕达",
         "description": "无纺布个人防护装备与医疗设备机械制造商",
         "publisher": {
-          "@id": "https://gdkyd.com/#organization"
+          "@id": "http://gdkyd.com.cn/#organization"
         }
       }
     ]

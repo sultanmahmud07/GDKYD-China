@@ -61,7 +61,7 @@ export default async function Page({ params }) {
     },
     "offers": {
       "@type": "Offer",
-      "url": `https://gdkyd.com/product/${slug}`,
+      "url": `http://gdkyd.com.cn/product/${slug}`,
       "priceCurrency": "USD",
       "price": "0.00",
       "priceValidUntil": "2027-12-31",

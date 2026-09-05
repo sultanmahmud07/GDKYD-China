@@ -26,7 +26,7 @@ export default async function sitemap() {
   return list
     .filter((portfolio) => portfolio?.slug && portfolio?.slug !== "undefined")
     .map((portfolio) => ({
-      url: `https://gdkyd.com/portfolio/${portfolio.slug}`,
+      url: `http://gdkyd.com.cn/portfolio/${portfolio.slug}`,
       // lastModified: product?.createdAt,
     }));
 }

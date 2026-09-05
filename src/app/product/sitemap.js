@@ -26,7 +26,7 @@ export default async function sitemap() {
   return list
     .filter((product) => product?.slug && product?.slug !== "undefined")
     .map((product) => ({
-      url: `https://gdkyd.com/product/${product.slug}`,
+      url: `http://gdkyd.com.cn/product/${product.slug}`,
       // lastModified: product?.createdAt,
     }));
 }
