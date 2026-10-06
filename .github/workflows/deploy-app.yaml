@@ -13,10 +13,18 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node.js & Cache
         uses: actions/setup-node@v4
         with:
-          node-version: "24"
+          node-version: "20"
+          cache: "npm"
+
+      - name: Inject Environment Variables
+        if: ${{ secrets.FRONTEND_ENVS != '' }}
+        run: |
+          cat << 'EOF' > .env
+          ${{ secrets.FRONTEND_ENVS }}
+          EOF
 
       - name: Install Dependencies
         run: npm ci || npm install --legacy-peer-deps
@@ -24,21 +32,11 @@ jobs:
       - name: Build GDKYD Chinese Project
         run: npm run build
 
-      # Configure SSH Connection Safely
       - name: Configure SSH
         env:
           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_PRIVATE_KEY || secrets.HOSTINGER_SSH_KEY || secrets.SSH_PRIVATE_KEY }}
           EC2_HOST: ${{ secrets.EC2_HOST || secrets.HOSTINGER_HOST || secrets.HOST_IP }}
         run: |
-          if [ -z "$SSH_PRIVATE_KEY" ]; then
-            echo "::error::SSH Private Key is missing! Please add EC2_SSH_PRIVATE_KEY to GitHub Secrets."
-            exit 1
-          fi
-          if [ -z "$EC2_HOST" ]; then
-            echo "::error::Server IP/Host is missing! Please add EC2_HOST to GitHub Secrets."
-            exit 1
-          fi
-
           mkdir -p ~/.ssh
           echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
@@ -49,47 +47,41 @@ jobs:
             UserKnownHostsFile=/dev/null
           EOF
           chmod 600 ~/.ssh/config
-
           ssh-keyscan -H "$EC2_HOST" >> ~/.ssh/known_hosts 2>/dev/null || true
 
-      # Deploy Chinese Application to Alibaba ECS
       - name: Deploy to Alibaba ECS
         env:
           EC2_HOST: ${{ secrets.EC2_HOST || secrets.HOSTINGER_HOST || secrets.HOST_IP }}
           EC2_USER: ${{ secrets.EC2_USER || secrets.HOSTINGER_USER || 'root' }}
         run: |
-          # 1. Create target directory for Chinese frontend
           ssh -i ~/.ssh/id_rsa $EC2_USER@$EC2_HOST "mkdir -p ~/gdkyd-china-frontend"
 
-          # 2. Inject environment variables if provided
-          if [ -n "${{ secrets.FRONTEND_ENVS }}" ]; then
-            cat << 'EOF' > .env
-          ${{ secrets.FRONTEND_ENVS }}
-          EOF
-          fi
-
-          # 3. Rsync project files including .next build folder to ECS
-          rsync -avz -e "ssh -i ~/.ssh/id_rsa" \
+          # Sync built application without pushing node_modules
+          rsync -avz --delete -e "ssh -i ~/.ssh/id_rsa" \
             --exclude='.git' \
             --exclude='node_modules' \
             --exclude='.github' \
             . $EC2_USER@$EC2_HOST:~/gdkyd-china-frontend/
 
-          # 4. Execute post-deployment commands on server
           ssh -i ~/.ssh/id_rsa $EC2_USER@$EC2_HOST << 'EOF'
             export PATH=$HOME/.local/share/fnm:$PATH:$HOME/.npm-global/bin:/usr/local/bin:/usr/bin:$PATH
             which fnm >/dev/null 2>&1 && eval "`fnm env`"
             
-            # Ensure PM2 is installed
-            which pm2 >/dev/null 2>&1 || npm install -g pm2
-            
             cd ~/gdkyd-china-frontend
             
-            # Install dependencies on server
-            npm install --legacy-peer-deps || npm install
-            
-            # Restart or start the Chinese process on Port 3000
-            pm2 restart gdkyd-china-frontend || PORT=3000 pm2 start npm --name "gdkyd-china-frontend" -- start
+            # Switch to Alibaba China mirror for speed
+            npm config set registry https://registry.npmmirror.com
+
+            # Only run npm install if node_modules is missing or package.json changed
+            if [ ! -d "node_modules" ] || [ package.json -nt node_modules ]; then
+              npm install --omit=dev --legacy-peer-deps
+              touch node_modules
+            fi
+
+            # Reload or start smoothly on Port 3000
+            pm2 describe gdkyd-china-frontend > /dev/null 2>&1 \
+              && pm2 reload gdkyd-china-frontend --update-env \
+              || PORT=3000 pm2 start npm --name "gdkyd-china-frontend" -- start -- -p 3000
             
             pm2 save
           EOF
