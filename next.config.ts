@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
       { protocol: "http", hostname: "[IP_ADDRESS]" },
       { protocol: "https", hostname: "145.223.21.187" },
       { protocol: "https", hostname: "147.79.117.103" },
+      { protocol: "http", hostname: "147.79.117.103" },
       { protocol: "https", hostname: "gdkyd.com" },
       { protocol: "https", hostname: "api.gdkyd.com" },
       { protocol: "https", hostname: "res.cloudinary.com" },

@@ -14,15 +14,21 @@ export default async function getProducts(searchParams, slug) {
 
     // ✅ Optional query filters
     if (searchParams?.category) params.set("category", searchParams.category);
+  try {
     const result = await fetch(
-        `${BASEURL}/product/all?${params.toString()}`,
-        {
-            cache: "no-store"
-        }
-    )
+      `${BASEURL}/product/all?${params.toString()}`,
+      {
+        cache: "no-store",
+      }
+    );
 
     if (!result.ok) {
-        throw new Error("There was an error fetching all Product Data!")
+      console.warn("Failed to fetch all Product Data, status:", result.status);
+      return { data: { data: [] } };
     }
-    return result.json();
+    return await result.json();
+  } catch (error) {
+    console.error("Error fetching all Product Data in getProducts:", error.message);
+    return { data: { data: [] } };
+  }
 }

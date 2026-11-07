@@ -1,19 +1,20 @@
 import { BASEURL } from "../../Constant";
 
 export default async function getHomePageData() {
-    // console.log(props)
-    const result = await fetch(
-        `${BASEURL}/web-home`,
-        {
-            // cache: "no-store"
-            next: {
-                revalidate: 5,
-            }
-        }
-    )
+  try {
+    const result = await fetch(`${BASEURL}/web-home`, {
+      next: {
+        revalidate: 5,
+      },
+    });
 
     if (!result.ok) {
-        throw new Error("There was an error fetching Home page data!")
+      console.warn("Failed to fetch Home page data, status:", result.status);
+      return { data: {} };
     }
-    return result.json();
+    return await result.json();
+  } catch (error) {
+    console.error("Error fetching Home page data in getHomePageData:", error.message);
+    return { data: {} };
+  }
 }
