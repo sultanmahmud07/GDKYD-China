@@ -1,12 +1,16 @@
 import { BASEURL } from "../../Constant";
 
 export default async function getPortfolioImage() {
-    const result = await fetch(
-        `${BASEURL}/portfolio/all`,
-    )
+  try {
+    const result = await fetch(`${BASEURL}/portfolio/all`);
 
     if (!result.ok) {
-        throw new Error("There was an error fetching POrtfolio Image!")
+      console.warn("Failed to fetch Portfolio Image, status:", result.status);
+      return { data: [] };
     }
-    return result.json();
+    return await result.json();
+  } catch (error) {
+    console.error("Error fetching Portfolio Image in getPortfolioImage:", error.message);
+    return { data: [] };
+  }
 }

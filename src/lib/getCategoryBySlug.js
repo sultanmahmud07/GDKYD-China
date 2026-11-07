@@ -1,14 +1,18 @@
 import { BASEURL } from "../../Constant";
 
 export default async function getCategoryBySlug(props) {
-    // console.log(props)
-    const result = await fetch(
-        `${BASEURL}/category/slug/${props}`
-        ,{  cache: 'no-store' }
-        )
+  try {
+    const result = await fetch(`${BASEURL}/category/slug/${props}`, {
+      cache: "no-store",
+    });
 
     if (!result.ok) {
-        throw new Error("There was an error fetching get specific Category Data!")
+      console.warn("Failed to fetch category data, status:", result.status);
+      return { data: {} };
     }
-    return result.json();
+    return await result.json();
+  } catch (error) {
+    console.error("Error fetching category data in getCategoryBySlug:", error.message);
+    return { data: {} };
+  }
 }

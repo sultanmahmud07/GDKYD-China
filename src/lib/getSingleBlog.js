@@ -1,14 +1,18 @@
 import { BASEURL } from "../../Constant";
 
 export default async function getSingleBlog(props) {
-    // console.log(props)
-    const result = await fetch(
-        `${BASEURL}/blog/slug/${props}`
-        ,{  cache: 'no-store' }
-        )
+  try {
+    const result = await fetch(`${BASEURL}/blog/slug/${props}`, {
+      cache: "no-store",
+    });
 
     if (!result.ok) {
-        throw new Error("There was an error fetching get specific blog!")
+      console.warn("Failed to fetch blog data, status:", result.status);
+      return { data: {} };
     }
-    return result.json();
+    return await result.json();
+  } catch (error) {
+    console.error("Error fetching blog data in getSingleBlog:", error.message);
+    return { data: {} };
+  }
 }
